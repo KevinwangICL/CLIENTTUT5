@@ -51,6 +51,7 @@ public class Main {
         Patient p = new Patient("Henry", 1,12345);
         Gson gson = new Gson();
         String jsonString = gson.toJson(p);
+        System.out.println(jsonString);
 
         makePostRequest(jsonString);
 
