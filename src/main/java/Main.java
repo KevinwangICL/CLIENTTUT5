@@ -1,3 +1,5 @@
+import com.google.gson.Gson;
+
 import java.net.*;
 import java.io.*;
 import java.io.IOException;
@@ -46,12 +48,17 @@ public class Main {
             e.printStackTrace();
         }
 
+        Patient p = new Patient("Henry", 1,12345);
+        Gson gson = new Gson();
+        String jsonString = gson.toJson(p);
+
+        makePostRequest(jsonString);
 
     }
 
-    private static void POST() {
+    private static void makePostRequest(String messagein) {
+        String message = messagein;
         // Set up the body data
-        String message = "Hello servlet";
         byte[] body = message.getBytes(StandardCharsets.UTF_8);
         URL myURL = null;
         try {
